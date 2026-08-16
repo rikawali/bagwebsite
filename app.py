@@ -1,5 +1,4 @@
 import json
-import mimetypes
 import os
 import re
 import uuid
@@ -34,7 +33,6 @@ DELIVERY_PRICE = 600  # fallback when a wilaya has no known price
 ADMIN_PASSWORD = os.environ.get("KYO_ADMIN_PASSWORD", "kyo2026")
 
 app = Flask(__name__)
-mimetypes.add_type("application/vnd.android.package-archive", ".apk")
 app.config["JSON_AS_ASCII"] = False
 app.secret_key = os.environ.get("KYO_SECRET", "kyo-secret-change-me")
 
@@ -143,11 +141,6 @@ def home():
 @app.route("/bags")
 def bags_page():
     return render_template("bags.html", bags=load_bags())
-
-
-@app.route("/app")
-def app_page():
-    return render_template("app.html")
 
 
 @app.route("/manifest.json")

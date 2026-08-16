@@ -44,7 +44,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/static/") && !url.pathname.endsWith(".apk")) {
+  if (url.pathname.startsWith("/static/")) {
     event.respondWith(
       caches.match(request).then(
         (cached) =>
