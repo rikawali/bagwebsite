@@ -4,7 +4,7 @@
 <section class="page-banner">
   <div class="container">
     <h1>{{ t('orders.banner.title') }}</h1>
-    <p>{{ t('orders.banner.sub').format(n=orders|length) }}</p>
+    <p>{{ t('orders.banner.sub').format(n=orders|length) }} · <a href="/admin/bags" class="admin-switch">{{ t('ab.manage_bags') }} →</a></p>
   </div>
 </section>
 

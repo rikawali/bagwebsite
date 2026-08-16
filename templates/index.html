@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Kyo{% endblock %}
 
-{% set feature_bags = bags[:3] %}
-{% set edit_bags = [bags[4], bags[2], bags[6], bags[3]] %}
-{% set style_bags = [bags[0], bags[1], bags[2], bags[5]] %}
-{% set pf_bag = bags[3] %}
+{% set b = bags if bags|length >= 7 else (bags * 7)[:7] %}
+{% set feature_bags = b[:3] %}
+{% set edit_bags = [b[4], b[2], b[6], b[3]] %}
+{% set style_bags = [b[0], b[1], b[2], b[5]] %}
+{% set pf_bag = b[3] %}
 {% set insta_imgs = [
-  bags[0].variants[0].image,
-  bags[1].variants[0].image,
-  bags[2].variants[0].image,
-  bags[3].variants[0].image,
-  bags[4].variants[0].image,
-  bags[5].variants[0].image
+  b[0].variants[0].image,
+  b[1].variants[0].image,
+  b[2].variants[0].image,
+  b[3].variants[0].image,
+  b[4].variants[0].image,
+  b[5].variants[0].image
 ] %}
 
 {% block content %}
@@ -34,7 +35,7 @@
     </div>
     <div class="hero-card reveal" style="--d:.15s">
       <div class="hero-frame">
-        <img src="{{ bags[0].variants[0].image }}" alt="Kyo" class="hero-img"
+        <img src="{{ b[0].variants[0].image }}" alt="Kyo" class="hero-img"
              onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'">
         <span class="hero-sticker">{{ t('hero.sticker') }}</span>
       </div>

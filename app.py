@@ -14,6 +14,7 @@ from flask import (
     session,
     url_for,
 )
+from werkzeug.utils import secure_filename
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -262,6 +263,104 @@ def login():
 def logout():
     session.pop("admin", None)
     return redirect(url_for("home"))
+
+
+def admin_session():
+    if not session.get("admin"):
+        return True
+    return False
+
+
+def parse_price(value, fallback=0):
+    try:
+        return int(float(value))
+    except (TypeError, ValueError):
+        return fallback
+
+
+def save_bag_image(bag_id, uploaded_file, image_url):
+    if uploaded_file and uploaded_file.filename:
+        filename = f"b{bag_id}_{secure_filename(uploaded_file.filename)}"
+        img_dir = os.path.join(BASE_DIR, "static", "images", "bags")
+        os.makedirs(img_dir, exist_ok=True)
+        uploaded_file.save(os.path.join(img_dir, filename))
+        return f"static/images/bags/{filename}"
+    return image_url.strip() or "static/images/bags/placeholder.svg"
+
+
+@app.route("/admin/bags")
+def admin_bags():
+    if admin_session():
+        return render_template("login.html")
+    return render_template("admin_bags.html", bags=load_bags())
+
+
+@app.route("/admin/bags/add", methods=["POST"])
+def admin_bags_add():
+    if admin_session():
+        return redirect(url_for("login"))
+    bags = load_bags()
+    new_id = max((b["id"] for b in bags), default=0) + 1
+    image = save_bag_image(
+        new_id, request.files.get("image_file"), request.form.get("image_url", "")
+    )
+    bag = {
+        "id": new_id,
+        "name": (request.form.get("name") or "New bag").strip(),
+        "description": (request.form.get("description") or "").strip(),
+        "price": parse_price(request.form.get("price")),
+        "category": (request.form.get("category") or "Classic").strip(),
+        "featured": request.form.get("featured") == "1",
+        "variants": [
+            {
+                "color": (request.form.get("color") or "Classic").strip(),
+                "image": image,
+                "swatch": (request.form.get("swatch") or "#b9a8d6").strip(),
+            }
+        ],
+    }
+    bags.append(bag)
+    save_json(BAGS_FILE, bags)
+    return redirect(url_for("admin_bags"))
+
+
+@app.route("/admin/bags/<int:bag_id>/edit", methods=["GET", "POST"])
+def admin_bags_edit(bag_id):
+    if admin_session():
+        return redirect(url_for("login"))
+    bags = load_bags()
+    bag = next((b for b in bags if b["id"] == bag_id), None)
+    if not bag:
+        return redirect(url_for("admin_bags"))
+    if request.method == "POST":
+        bag["name"] = (request.form.get("name") or bag["name"]).strip()
+        bag["description"] = (request.form.get("description") or "").strip()
+        bag["price"] = parse_price(request.form.get("price"), bag["price"])
+        bag["category"] = (request.form.get("category") or bag["category"]).strip()
+        bag["featured"] = request.form.get("featured") == "1"
+        variant = bag["variants"][0]
+        variant["color"] = (request.form.get("color") or variant["color"]).strip()
+        variant["swatch"] = (request.form.get("swatch") or variant["swatch"]).strip()
+        uploaded = request.files.get("image_file")
+        if uploaded and uploaded.filename:
+            variant["image"] = save_bag_image(bag_id, uploaded, "")
+        else:
+            url = (request.form.get("image_url") or "").strip()
+            if url:
+                variant["image"] = url
+        save_json(BAGS_FILE, bags)
+        return redirect(url_for("admin_bags"))
+    return render_template("admin_bags_edit.html", bag=bag)
+
+
+@app.route("/admin/bags/<int:bag_id>/delete", methods=["POST"])
+def admin_bags_delete(bag_id):
+    if admin_session():
+        return redirect(url_for("login"))
+    bags = load_bags()
+    bags = [b for b in bags if b["id"] != bag_id]
+    save_json(BAGS_FILE, bags)
+    return redirect(url_for("admin_bags"))
 
 
 if __name__ == "__main__":

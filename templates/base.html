@@ -24,7 +24,7 @@
       <nav class="nav">
         <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">{{ t('nav.home') }}</a>
         <a href="/bags" class="nav-link {% if request.path == '/bags' %}active{% endif %}">{{ t('nav.bags') }}</a>
-        {% if session.get('admin') %}<a href="/orders" class="nav-link {% if request.path == '/orders' %}active{% endif %}">{{ t('nav.orders') }}</a><a href="/logout" class="nav-link">{{ t('nav.logout') }}</a>{% endif %}
+        {% if session.get('admin') %}<a href="/orders" class="nav-link {% if request.path == '/orders' %}active{% endif %}">{{ t('nav.orders') }}</a><a href="/admin/bags" class="nav-link {% if request.path.startswith('/admin/bags') %}active{% endif %}">{{ t('nav.bags_admin') }}</a><a href="/logout" class="nav-link">{{ t('nav.logout') }}</a>{% endif %}
       </nav>
     </div>
   </header>

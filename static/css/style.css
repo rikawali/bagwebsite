@@ -1057,6 +1057,59 @@ img { max-width: 100%; display: block; }
 .notes-row td { background: #fdf3e0; font-size: 0.82rem; }
 .empty { text-align: center; color: var(--ink-soft); padding: 70px 0; font-size: 1.05rem; }
 
+/* ---------- Admin bag manager ---------- */
+.admin-switch { color: var(--purple); font-weight: 700; }
+.admin-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.admin-card h2 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 18px; }
+.admin-form textarea {
+  padding: 12px 15px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  background: #fff;
+  width: 100%;
+  resize: vertical;
+}
+.admin-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(122, 92, 175, 0.14);
+}
+.admin-hint { font-size: 0.8rem; color: var(--ink-soft); margin: 10px 0 16px; }
+.admin-check { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; cursor: pointer; }
+.admin-check input { accent-color: var(--purple); width: 17px; height: 17px; }
+.admin-bag-list { display: flex; flex-direction: column; gap: 12px; }
+.admin-bag-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+}
+.admin-bag-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
+.admin-bag-info { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.admin-bag-info small { color: var(--ink-soft); }
+.admin-bag-item .btn { padding: 8px 14px; font-size: 0.85rem; white-space: nowrap; }
+.admin-edit-preview {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.btn-danger { background: #fdecef; color: #c23b56; border: 1px solid #f5c6cf; }
+.btn-danger:hover { background: #c23b56; color: #fff; transform: translateY(-2px); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .bags-grid, .bags-grid-full { grid-template-columns: repeat(2, 1fr); }

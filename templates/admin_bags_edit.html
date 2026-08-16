@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ t('ab.edit') }} — Kyo{% endblock %}
+{% block content %}
+<section class="section" style="padding-top:56px">
+  <div class="container">
+    <div class="admin-card" style="max-width:680px;margin:0 auto">
+      <h2>✏️ {{ t('ab.edit') }} — {{ bag.name }}</h2>
+      <img src="{{ bag.variants[0].image }}" onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'" alt="{{ bag.name }}" class="admin-edit-preview">
+      <form method="post" enctype="multipart/form-data" class="admin-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>{{ t('ab.name') }}</label>
+            <input name="name" value="{{ bag.name }}" required>
+          </div>
+          <div class="form-group">
+            <label>{{ t('ab.price') }}</label>
+            <input name="price" type="number" min="0" step="1" value="{{ bag.price }}" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>{{ t('ab.desc') }}</label>
+          <textarea name="description" rows="2">{{ bag.description }}</textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>{{ t('ab.category') }}</label>
+            <input name="category" value="{{ bag.category }}">
+          </div>
+          <div class="form-group">
+            <label>{{ t('ab.color') }}</label>
+            <input name="color" value="{{ bag.variants[0].color }}">
+          </div>
+          <div class="form-group">
+            <label>{{ t('ab.swatch') }}</label>
+            <input name="swatch" type="color" value="{{ bag.variants[0].swatch or '#b9a8d6' }}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>{{ t('ab.image_url') }}</label>
+            <input name="image_url" value="{{ bag.variants[0].image }}" placeholder="https://…">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>{{ t('ab.image_file') }}</label>
+            <input name="image_file" type="file" accept="image/*">
+          </div>
+        </div>
+        <label class="admin-check"><input type="checkbox" name="featured" value="1" {% if bag.featured %}checked{% endif %}> {{ t('ab.featured') }}</label>
+        <p class="admin-hint">{{ t('ab.image_hint') }}</p>
+        <button type="submit" class="btn btn-primary">{{ t('ab.save') }}</button>
+        <a class="btn btn-outline" href="/admin/bags">← {{ t('ab.list') }}</a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
