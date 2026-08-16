@@ -48,7 +48,10 @@
     </div>
     <div class="footer-bottom">
       <span>{{ t('footer.rights') }}</span>
-      <button type="button" class="install-app-btn" id="installApp">📱 {{ t('app.install') }}</button>
+      <div class="footer-actions">
+        <a href="/login" class="install-app-btn">🔐 {{ t('app.admin') }}</a>
+        <button type="button" class="install-app-btn" id="installApp">📱 {{ t('app.install') }}</button>
+      </div>
     </div>
   </footer>
 

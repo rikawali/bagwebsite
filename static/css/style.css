@@ -816,6 +816,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s, transform 0.2s;
 }
 .install-app-btn:hover { background: var(--purple); transform: translateY(-2px); }
+.footer-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 
 /* ---------- Page banner ---------- */
 .page-banner {
