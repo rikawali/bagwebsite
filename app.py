@@ -11,6 +11,7 @@ from flask import (
     redirect,
     render_template,
     request,
+    send_from_directory,
     session,
     url_for,
 )
@@ -140,6 +141,23 @@ def home():
 @app.route("/bags")
 def bags_page():
     return render_template("bags.html", bags=load_bags())
+
+
+@app.route("/manifest.json")
+def manifest():
+    return send_from_directory(
+        app.static_folder, "manifest.json", mimetype="application/manifest+json"
+    )
+
+
+@app.route("/sw.js")
+def service_worker():
+    return send_from_directory(
+        app.static_folder,
+        "sw.js",
+        mimetype="application/javascript",
+        max_age=0,
+    )
 
 
 @app.route("/api/wilayas")

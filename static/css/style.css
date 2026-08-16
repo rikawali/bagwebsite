@@ -801,6 +801,21 @@ img { max-width: 100%; display: block; }
   font-size: 0.82rem;
   color: #b7a9c7;
 }
+.install-app-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 9px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.install-app-btn:hover { background: var(--purple); transform: translateY(-2px); }
 
 /* ---------- Page banner ---------- */
 .page-banner {

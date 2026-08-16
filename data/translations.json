@@ -191,6 +191,7 @@
   "footer.follow.3": {"ar": "تيك توك", "en": "TikTok"},
   "footer.follow.4": {"ar": "بينترست", "en": "Pinterest"},
   "footer.rights": {"ar": "© 2026 Kyo. جميع الحقوق محفوظة.", "en": "© 2026 KYO. All rights reserved."},
+  "app.install": {"ar": "تثبيت التطبيق", "en": "Install the app"},
 
   "js.wilayas_error": {"ar": "تعذر تحميل الولايات. أعد تحميل الصفحة.", "en": "Couldn't load wilayas. Please reload."},
   "js.required_name": {"ar": "الرجاء إدخال الاسم واللقب.", "en": "Please enter your first and last name."},
