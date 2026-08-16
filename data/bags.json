@@ -9,7 +9,7 @@
     "variants": [
       {
         "color": "Classic",
-        "image": "static/images/bags/k1.jpg",
+        "image": "static/images/bags/k1.webp",
         "swatch": "#999891"
       }
     ]
@@ -24,7 +24,7 @@
     "variants": [
       {
         "color": "Modern",
-        "image": "static/images/bags/k2.jpg",
+        "image": "static/images/bags/k2.webp",
         "swatch": "#9b967f"
       }
     ]
@@ -39,7 +39,7 @@
     "variants": [
       {
         "color": "Elegant",
-        "image": "static/images/bags/k3.jpg",
+        "image": "static/images/bags/k3.webp",
         "swatch": "#9a9382"
       }
     ]
@@ -54,7 +54,7 @@
     "variants": [
       {
         "color": "Classic",
-        "image": "static/images/bags/k4.jpg",
+        "image": "static/images/bags/k4.webp",
         "swatch": "#a2a5a0"
       }
     ]
@@ -69,7 +69,7 @@
     "variants": [
       {
         "color": "Popular",
-        "image": "static/images/bags/k5.jpg",
+        "image": "static/images/bags/k5.webp",
         "swatch": "#a2a399"
       }
     ]
@@ -84,7 +84,7 @@
     "variants": [
       {
         "color": "Chic",
-        "image": "static/images/bags/k6.jpg",
+        "image": "static/images/bags/k6.webp",
         "swatch": "#a3a699"
       }
     ]
@@ -99,7 +99,7 @@
     "variants": [
       {
         "color": "Distinctive",
-        "image": "static/images/bags/k7.jpg",
+        "image": "static/images/bags/k7.webp",
         "swatch": "#a1998f"
       }
     ]

@@ -35,7 +35,7 @@
     </div>
     <div class="hero-card reveal" style="--d:.15s">
       <div class="hero-frame">
-        <img src="{{ b[0].variants[0].image }}" alt="Kyo" class="hero-img"
+        <img src="{{ b[0].variants[0].image }}" alt="Kyo" class="hero-img" fetchpriority="high"
              onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'">
         <span class="hero-sticker">{{ t('hero.sticker') }}</span>
       </div>
@@ -193,7 +193,7 @@
 <section class="section">
   <div class="container pfeature-grid">
     <div class="pfeature-frame reveal">
-      <img src="{{ pf_bag.variants[0].image }}" alt="{{ pf_bag.name }}" class="pfeature-img"
+      <img src="{{ pf_bag.variants[0].image }}" alt="{{ pf_bag.name }}" class="pfeature-img" loading="lazy" decoding="async"
            onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'">
     </div>
     <div class="pfeature-copy reveal" style="--d:.15s">
@@ -261,7 +261,7 @@
     <div class="insta-grid reveal">
       {% for img in insta_imgs %}
       <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-card">
-        <img src="{{ img }}" alt="Kyo on Instagram" loading="lazy"
+        <img src="{{ img }}" alt="Kyo on Instagram" loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'">
         <span class="insta-ico">💜</span>
       </a>

@@ -36,7 +36,7 @@ body {
   color: var(--ink);
   background:
     linear-gradient(rgba(253, 250, 245, 0.86), rgba(253, 250, 245, 0.86)),
-    url("../images/anime-hero.jpg") center / cover fixed;
+    url("../images/anime-hero.webp") center / cover fixed;
   background-attachment: fixed;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -834,7 +834,7 @@ img { max-width: 100%; display: block; }
 .modal {
   background:
     linear-gradient(rgba(255, 252, 250, 0.9), rgba(255, 252, 250, 0.9)),
-    url("../images/anime-checkout.jpg") center / cover;
+    url("../images/anime-checkout.webp") center / cover;
   border-radius: 26px;
   max-width: 560px;
   width: 100%;
@@ -1112,6 +1112,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  body { background-attachment: scroll; }
   .bags-grid, .bags-grid-full { grid-template-columns: repeat(2, 1fr); }
   .hero-inner { grid-template-columns: 1fr; gap: 44px; }
   .hero h1 { font-size: 2.8rem; }
