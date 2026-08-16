@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Kyo — {{ t('bags.title') }}{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <p class="section-kicker">{{ t('bags.kicker') }}</p>
+    <h1>{{ t('bags.title') }}</h1>
+    <p>{{ t('bags.sub') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="bags-grid bags-grid-full">
+      {% for bag in bags %}
+      <article class="bag-card reveal" data-bag='{{ bag | tojson }}' style="--d:{{ '0s' if loop.index0 % 4 == 0 else ('0.08s' if loop.index0 % 4 == 1 else ('0.16s' if loop.index0 % 4 == 2 else '0.24s')) }}">
+        <div class="bag-img">
+          <img src="{{ bag.variants[0].image }}" alt="{{ bag.name }}" loading="lazy" class="bag-main-img"
+               onerror="this.onerror=null;this.src='/static/images/bags/placeholder.svg'">
+          <span class="bag-cat">{{ bag.category }}</span>
+        </div>
+        <div class="bag-body">
+          <h3>{{ bag.name }}</h3>
+          <p class="bag-desc">{{ bag.description }}</p>
+          <div class="bag-dots" role="tablist">
+            {% for v in bag.variants %}
+            <button class="dot {% if loop.index0 == 0 %}active{% endif %}" data-variant="{{ loop.index0 }}"
+                    title="{{ v.color }}" style="background: {{ v.swatch }}"></button>
+            {% endfor %}
+          </div>
+          <p class="bag-price">{{ bag.price }} <small>DZD</small></p>
+          <button class="btn btn-primary buy-btn btn-glam" data-bag-id="{{ bag.id }}">{{ t('buy') }}</button>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block modals %}{% include "checkout.html" %}{% endblock %}

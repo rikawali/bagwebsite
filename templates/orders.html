@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ t('orders.banner.title') }} — Kyo{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <h1>{{ t('orders.banner.title') }}</h1>
+    <p>{{ t('orders.banner.sub').format(n=orders|length) }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if orders %}
+    <div class="table-wrap">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>{{ t('orders.th.id') }}</th>
+            <th>{{ t('orders.th.customer') }}</th>
+            <th>{{ t('orders.th.phone') }}</th>
+            <th>{{ t('orders.th.wilaya') }}</th>
+            <th>{{ t('orders.th.city') }}</th>
+            <th>{{ t('orders.th.bag') }}</th>
+            <th>{{ t('orders.th.color') }}</th>
+            <th>{{ t('orders.th.qty') }}</th>
+            <th>{{ t('orders.th.delivery') }}</th>
+            <th>{{ t('orders.th.total') }}</th>
+            <th>{{ t('orders.th.date') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for o in orders %}
+          <tr>
+            <td>{{ o.order_id }}</td>
+            <td>{{ o.first_name }} {{ o.last_name }}</td>
+            <td>{{ o.phone }}</td>
+            <td>{{ o.wilaya }}</td>
+            <td>{{ o.city }}</td>
+            <td>{{ o.bag_name }} <small>({{ o.bag_price }} DZD)</small></td>
+            <td>{{ o.color }}</td>
+            <td>{{ o.quantity }}</td>
+            <td>{% if o.delivery_type == 'office' %}🏢 {{ t('checkout.deliv.office') }}{% else %}🏠 {{ t('checkout.deliv.home') }}{% endif %} <small>({{ o.delivery_price }} DZD)</small></td>
+            <td><strong>{{ o.total }} DZD</strong></td>
+            <td>{{ o.date }}</td>
+          </tr>
+          {% if o.notes %}<tr class="notes-row"><td colspan="11">📝 {{ o.notes }}</td></tr>{% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="empty">{{ t('orders.empty') }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

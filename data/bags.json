@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "KYO Bag — Model 1",
+    "description": "A refined model, available in several colors.",
+    "price": 4000,
+    "category": "Classic",
+    "featured": true,
+    "variants": [
+      {
+        "color": "Classic",
+        "image": "static/images/bags/k1.jpg",
+        "swatch": "#999891"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "KYO Bag — Model 2",
+    "description": "A modern, practical style for everyday use.",
+    "price": 3500,
+    "category": "Modern",
+    "featured": true,
+    "variants": [
+      {
+        "color": "Modern",
+        "image": "static/images/bags/k2.jpg",
+        "swatch": "#9b967f"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "KYO Bag — Model 3",
+    "description": "Elegance and originality in one accessory.",
+    "price": 6000,
+    "category": "Elegant",
+    "featured": true,
+    "variants": [
+      {
+        "color": "Elegant",
+        "image": "static/images/bags/k3.jpg",
+        "swatch": "#9a9382"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "KYO Bag — Model 4",
+    "description": "An essential piece to complete all your looks.",
+    "price": 5500,
+    "category": "Classic",
+    "featured": false,
+    "variants": [
+      {
+        "color": "Classic",
+        "image": "static/images/bags/k4.jpg",
+        "swatch": "#a2a5a0"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "KYO Bag — Model 5",
+    "description": "The modern touch for your wardrobe.",
+    "price": 4400,
+    "category": "Popular",
+    "featured": false,
+    "variants": [
+      {
+        "color": "Popular",
+        "image": "static/images/bags/k5.jpg",
+        "swatch": "#a2a399"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "KYO Bag — Model 6",
+    "description": "An elegant model for all occasions.",
+    "price": 3300,
+    "category": "Chic",
+    "featured": false,
+    "variants": [
+      {
+        "color": "Chic",
+        "image": "static/images/bags/k6.jpg",
+        "swatch": "#a3a699"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "KYO Bag — Model 7",
+    "description": "For those who love to stand out with a distinctive style.",
+    "price": 5600,
+    "category": "Distinctive",
+    "featured": false,
+    "variants": [
+      {
+        "color": "Distinctive",
+        "image": "static/images/bags/k7.jpg",
+        "swatch": "#a1998f"
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+<svg width="280" height="84" viewBox="0 0 280 84" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kyo-bag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb3c8"/>
+      <stop offset="1" stop-color="#c9415b"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="6" width="66" height="66" rx="20" fill="url(#kyo-bag)"/>
+  <path d="M25 31 C25 22, 49 22, 49 31" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M20 33 L54 33 L50.5 51 A6 6 0 0 1 44.5 55.5 H29.5 A6 6 0 0 1 23.5 51 Z" fill="#fff"/>
+  <rect x="35" y="33" width="4" height="5" rx="1.5" fill="#ffb3c8"/>
+  <text x="96" y="53" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#2b2226">Kyo</text>
+  <path d="M186 28 C186 34, 191 38, 196 38 C191 38, 186 43, 186 48 C186 43, 180 38, 176 38 C180 38, 186 34, 186 28 Z" fill="#c9415b"/>
+</svg>

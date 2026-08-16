@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7e8ea"/>
+      <stop offset="1" stop-color="#efe2f2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <g transform="translate(400 370)">
+    <path d="M-130 -40 Q-130 -180 -30 -200 Q60 -215 150 -190 Q260 -160 260 -30 L300 250 L-260 250 Z" fill="#c9a227" opacity="0.18"/>
+    <path d="M-150 -60 Q-150 -200 -40 -220 Q50 -235 150 -210 Q280 -180 280 -50 L320 250 L-240 250 Z" fill="#fff"/>
+    <path d="M-150 -60 L-90 -160" stroke="#e9d9dc" stroke-width="10" fill="none"/>
+    <path d="M280 -50 L210 -165" stroke="#e9d9dc" stroke-width="10" fill="none"/>
+    <rect x="-240" y="250" width="560" height="90" rx="20" fill="#f6e4e7"/>
+    <text x="40" y="315" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#c9415b">KYO</text>
+  </g>
+  <text x="400" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#8a7a80">Ajoutez la photo du sac ici</text>
+</svg>

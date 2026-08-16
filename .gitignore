@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+data/orders.json
+data/photo_map.json
+copy_bags.py
+generate_wilayas.py
+make_logo_transparent.py
+optimize_images.py
+.env

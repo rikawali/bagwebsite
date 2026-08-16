@@ -1,0 +1,101 @@
+<div class="modal-overlay" id="checkoutModal" hidden>
+  <div class="modal">
+    <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+    <h2>{{ t('checkout.title') }}</h2>
+
+    <div class="order-summary" id="orderSummary">
+      <span id="summaryBag">{{ t('checkout.bag') }}</span>
+      <span id="summaryTotal">0 DZD</span>
+    </div>
+
+    <div class="variant-picker">
+      <p class="variant-label">{{ t('checkout.color') }} <strong id="chosenColor">—</strong></p>
+      <div class="variant-thumbs" id="variantThumbs"></div>
+    </div>
+
+    <form id="checkoutForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">{{ t('checkout.fname') }}</label>
+          <input type="text" id="firstName" name="first_name" required autocomplete="given-name" placeholder="e.g. Fatima">
+        </div>
+        <div class="form-group">
+          <label for="lastName">{{ t('checkout.lname') }}</label>
+          <input type="text" id="lastName" name="last_name" required autocomplete="family-name" placeholder="e.g. Ben Ali">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">{{ t('checkout.phone') }}</label>
+        <input type="tel" id="phone" name="phone" placeholder="0550123456" required autocomplete="tel">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="wilaya">{{ t('checkout.wilaya') }}</label>
+          <select id="wilaya" name="wilaya" required>
+            <option value="">— Select wilaya —</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="city">{{ t('checkout.city') }}</label>
+          <select id="city" name="city" required disabled>
+            <option value="">— Select a wilaya first —</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{ t('checkout.delivery') }}</label>
+        <div class="delivery-choice">
+          <label class="delivery-option">
+            <input type="radio" name="delivery_type" value="home" checked>
+            <span class="delivery-emoji">🏠</span>
+            <span class="delivery-name">{{ t('checkout.home') }}</span>
+            <span class="delivery-price" id="deliveryHomePrice">—</span>
+          </label>
+          <label class="delivery-option">
+            <input type="radio" name="delivery_type" value="office">
+            <span class="delivery-emoji">🏢</span>
+            <span class="delivery-name">{{ t('checkout.office') }}</span>
+            <span class="delivery-price" id="deliveryOfficePrice">—</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group form-qty">
+          <label for="qty">{{ t('checkout.qty') }}</label>
+          <div class="qty-control">
+            <button type="button" id="qtyMinus">−</button>
+            <input type="number" id="qty" name="quantity" value="1" min="1" max="20">
+            <button type="button" id="qtyPlus">+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">{{ t('checkout.notes') }}</label>
+          <input type="text" id="notes" name="notes" placeholder="{{ t('checkout.notes_ph') }}">
+        </div>
+      </div>
+
+      <div class="price-breakdown">
+        <div class="price-line"><span>{{ t('checkout.price.bag') }}</span><span id="priceBag">0 DZD</span></div>
+        <div class="price-line"><span>{{ t('checkout.price.delivery') }}</span><span id="priceDelivery">Select wilaya</span></div>
+        <div class="price-line total"><span>{{ t('checkout.price.total') }}</span><span id="priceTotal">0 DZD</span></div>
+      </div>
+
+      <p class="cod-note">{{ t('checkout.cod') }}</p>
+
+      <p class="form-error" id="formError" hidden></p>
+
+      <button type="submit" class="btn btn-primary btn-block btn-glam" id="submitBtn">{{ t('checkout.submit') }}</button>
+    </form>
+
+    <div id="successBox" class="success-box" hidden>
+      <div class="success-icon">💖</div>
+      <h3>{{ t('checkout.success.title') }}</h3>
+      <p id="successInfo"></p>
+      <button class="btn btn-outline" id="closeAfterSuccess">{{ t('checkout.success.close') }}</button>
+    </div>
+  </div>
+</div>

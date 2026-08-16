@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ t('login.page.title') }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="login-card reveal visible">
+      <div class="login-icon">🔐</div>
+      <h2>{{ t('login.title') }}</h2>
+      <p class="login-sub">{{ t('login.sub') }}</p>
+      {% if error %}<div class="form-error">{{ t('login.error') }}</div>{% endif %}
+      <form method="post" action="/login">
+        <div class="form-group">
+          <label for="password">{{ t('login.password') }}</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">{{ t('login.submit') }}</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
